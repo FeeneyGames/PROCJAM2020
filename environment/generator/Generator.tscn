@@ -1,4 +1,12 @@
-[gd_scene format=2]
+[gd_scene load_steps=3 format=2]
 
-[node name="TileMap" type="TileMap"]
+[ext_resource path="res://environment/generator/Generator.cs" type="Script" id=1]
+[ext_resource path="res://environment/tileset/tileset.tres" type="TileSet" id=2]
+
+[node name="Generator" type="TileMap"]
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 90, 90 )
+cell_quadrant_size = 24
+cell_custom_transform = Transform2D( 0, 0, 0, 0, 0, 0 )
 format = 1
+script = ExtResource( 1 )
