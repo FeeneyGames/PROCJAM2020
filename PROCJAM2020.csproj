@@ -53,6 +53,7 @@
     <Reference Include="System" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="actors\player\Player.cs" />
     <Compile Include="environment\generator\Generator.cs" />
     <Compile Include="environment\generator\RandomWalker.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -4,6 +4,7 @@
 [ext_resource path="res://environment/tileset/tileset.tres" type="TileSet" id=2]
 
 [node name="Generator" type="TileMap"]
+z_index = -1
 tile_set = ExtResource( 2 )
 cell_size = Vector2( 90, 90 )
 cell_quadrant_size = 24

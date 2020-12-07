@@ -27,13 +27,13 @@ public class Generator : TileMap
         RandomWalker randomWalker = new RandomWalker(startTile, this);
         // Run simulation
         int numSteps = 0;
-        while(this.GetUsedCells().Count < MaxCells && numSteps <= MaxSteps)
+        while(this.GetUsedCells().Count < MaxCells && numSteps < MaxSteps)
         {
             randomWalker.Step();
             numSteps++;
         }
         // Fill in unused areas with walls
-        Vector2 padTiles = ((Godot.OS.WindowSize / this.CellSize) / 2).Ceil();
+        Vector2 padTiles = (Godot.OS.WindowSize / this.CellSize).Ceil();
         Rect2 floorRect = this.GetUsedRect();
         for(float i = floorRect.Position[0] - padTiles[0]; i < floorRect.End[0] + padTiles[0]; i++)
             for(float j = floorRect.Position[1] - padTiles[1]; j < floorRect.End[1] + padTiles[1]; j++)
