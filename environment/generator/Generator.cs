@@ -9,7 +9,7 @@ public class Generator : TileMap
     // Number of cells to create
     int MaxCells = 110;
     // Max number of steps to ensure no infinite loops
-    int MaxSteps = 200;
+    int MaxSteps = 1000;
     // Initial number of RandomWalker
     int InitWalkers = 1;
     // RandomNumberGenerator for RandomWalkers
