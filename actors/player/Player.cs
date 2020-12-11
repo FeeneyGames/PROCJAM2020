@@ -6,7 +6,6 @@ public class Player : KinematicBody2D
     const float SPEED = 600;
     const float RETICLE_MIN = 180;
     const float RETICLE_MAX = 600;
-    const float CAM_SPEED = 5;
     Node2D Reticle;
     Vector2 PrevReticleDir = Vector2.Right;
     Camera2D Camera;
@@ -62,9 +61,6 @@ public class Player : KinematicBody2D
 
     void MoveCamera()
     {
-        Vector2 targetPos = Reticle.Position/2;
-        Vector2 targetDif = targetPos - Camera.Position;
-        float camMov = CAM_SPEED * GetProcessDeltaTime();
-        Camera.Position += targetDif * camMov;
+        Camera.Position = Reticle.Position/2;
     }
 }
