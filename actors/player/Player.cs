@@ -6,6 +6,7 @@ public class Player : KinematicBody2D
     const float SPEED = 600;
     const float RETICLE_MIN = 180;
     const float RETICLE_MAX = 600;
+    const float CAM_SPEED = 5;
     Node2D Reticle;
     Vector2 PrevReticleDir = Vector2.Right;
     Camera2D Camera;
@@ -20,7 +21,7 @@ public class Player : KinematicBody2D
     public override void _Process(float delta)
     {
         MovePlayer();
-        MoveReticle(delta);
+        MoveReticle();
         MoveCamera();
     }
 
@@ -36,7 +37,7 @@ public class Player : KinematicBody2D
         MoveAndSlide(dir * SPEED);
     }
 
-    void MoveReticle(float delta)
+    void MoveReticle()
     {
         Vector2 dir = Vector2.Zero;
         dir.x -= Godot.Input.GetActionStrength("aim_left");
@@ -56,11 +57,14 @@ public class Player : KinematicBody2D
             lerp_speed = 5;
             pos = PrevReticleDir * RETICLE_MIN;
         }
-        Reticle.Position = Reticle.Position.LinearInterpolate(pos, lerp_speed * delta);
+        Reticle.Position = Reticle.Position.LinearInterpolate(pos, lerp_speed * GetProcessDeltaTime());
     }
 
     void MoveCamera()
     {
-        Camera.Position = Reticle.Position/2;
+        Vector2 targetPos = Reticle.Position/2;
+        Vector2 targetDif = targetPos - Camera.Position;
+        float camMov = CAM_SPEED * GetProcessDeltaTime();
+        Camera.Position += targetDif * camMov;
     }
 }
