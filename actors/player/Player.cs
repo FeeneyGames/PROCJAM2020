@@ -19,9 +19,16 @@ public class Player : KinematicBody2D
     // Called every frame. 'delta' is the elapsed time since the previous frame.
     public override void _Process(float delta)
     {
+        HandleRestart();
         MovePlayer();
         MoveReticle();
         MoveCamera();
+    }
+
+    void HandleRestart()
+    {
+        if(Godot.Input.IsActionJustPressed("restart"))
+            GetTree().ReloadCurrentScene();
     }
 
     void MovePlayer()
