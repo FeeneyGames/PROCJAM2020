@@ -56,6 +56,8 @@
     <Compile Include="actors\player\Player.cs" />
     <Compile Include="environment\generator\Generator.cs" />
     <Compile Include="environment\generator\RandomWalker.cs" />
+    <Compile Include="environment\vis_generator\VisGenerator.cs" />
+    <Compile Include="environment\vis_generator\VisWalker.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
