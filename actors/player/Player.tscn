@@ -11,6 +11,7 @@ extents = Vector2( 30, 30 )
 script = ExtResource( 2 )
 
 [node name="Reticle" type="Sprite" parent="."]
+visible = false
 position = Vector2( 180, 0 )
 texture = ExtResource( 3 )
 
